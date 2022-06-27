@@ -68,6 +68,20 @@ void I2C_PORT::_I2C_readBuff(uint8_t addr, int size, uint8_t buff[]) {
     }
 }
 
+uint16_t I2C_PORT::_I2C_read16Bit_lowFirst(uint8_t addr) {
+    uint8_t buff[2];
+    _I2C_readBuff(addr, 2, buff);
+    return buff[0] + (buff[1] << 8);
+}
+
+void I2C_PORT::_I2C_write16Bit(uint8_t addr, uint8_t data_1, uint8_t data_2) {
+    _wire->beginTransmission(_dev_addr);
+    _wire->write(addr);
+    _wire->write(data_1);
+    _wire->write(data_2);
+    _wire->endTransmission();
+}
+
 #else
 void I2C_PORT::_I2C_init(uint8_t dev_addr) { }
 void I2C_PORT::_I2C_checkDevAvl() { }

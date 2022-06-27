@@ -26,10 +26,12 @@ class I2C_PORT {
         void     _I2C_checkDevAvl();
         #endif
         void     _I2C_write1Byte(uint8_t addr, uint8_t data);
+        void     _I2C_write16Bit(uint8_t addr, uint8_t data_1, uint8_t data_2);
         uint8_t  _I2C_read8Bit(uint8_t addr);
         uint16_t _I2C_read12Bit(uint8_t addr);
         uint16_t _I2C_read13Bit(uint8_t addr);
         uint16_t _I2C_read16Bit(uint8_t addr);
+        uint16_t _I2C_read16Bit_lowFirst(uint8_t addr);
         uint32_t _I2C_read24Bit(uint8_t addr);
         uint32_t _I2C_read32Bit(uint8_t addr);
         void     _I2C_readBuff(uint8_t addr, int size, uint8_t buff[]);
