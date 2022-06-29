@@ -1,7 +1,7 @@
 #ifndef _VEML6040_H_
 #define _VEML6040_H_
 
-#include "../I2C_PORT/I2C_PORT.h"
+#include "../../HARDWARE-PORT/HARDWARE_PORT.h"
 #ifdef ARDUINO
 #include <Arduino.h>
 #include <Wire.h>
@@ -11,7 +11,7 @@
 #define RGB_SEN_DEV_ADDR 0x10
 
 /* RGB sensor class */
-class RGB_SEN:public I2C_PORT {
+class RGB_SEN : public I2C_PORT {
     public:
         /* Sensor enable or disable */
         enum SD {
